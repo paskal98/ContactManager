@@ -1,0 +1,44 @@
+.panel {
+  width: 80vw;
+  margin: 0 auto;
+  padding: 30px 0 40px 0;
+  display: flex;
+  justify-content: left;
+}
+  .panel_button{
+    text-align: center;
+
+
+    padding: 1px 18px 0 18px;
+    min-width: 80px;
+    height: 30px;
+    border: 2px solid $color4;
+    background-color: $color1;
+
+    border-radius: 6px;
+    margin-right: 24px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+
+    color: $color4;
+
+    cursor: pointer;
+    transition: all ease-in-out .1s;
+
+    &:hover{
+      border: 2px solid $color4;
+      background-color: $color4;
+      color: $color1;
+      outline: none;
+    }
+
+
+
+
+  }
+

@@ -1,0 +1,200 @@
+@import "src/var";
+
+
+.app-show__main{
+  width: calc(99vw) ;
+  padding-top: 52px;
+
+
+  &__panel{
+    width: 80vw;
+    margin: 0 auto;
+    padding: 30px 0 40px 0;
+    display: flex;
+    justify-content: left;
+
+    &__button{
+      text-align: center;
+
+
+      padding: 1px 18px 0 18px;
+      min-width: 80px;
+      height: 30px;
+      border: 2px solid $color4;
+      background-color: $color1;
+
+      border-radius: 6px;
+      margin-right: 24px;
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 10px;
+      line-height: 12px;
+      text-align: center;
+
+      color: $color4;
+
+      cursor: pointer;
+      transition: all ease-in-out .1s;
+
+      &:hover{
+        border: 2px solid $color4;
+        background-color: $color4;
+        color: $color1;
+        outline: none;
+      }
+    }
+  }
+
+  &__content{
+    display: grid;
+    grid-template-columns: repeat(1,80vw);
+    justify-content: space-around;
+    grid-row-gap: 30px;
+
+    &__main{
+      grid-column: span 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-family: Montserrat;
+      grid-column: 1 span;
+      &__fullname{
+        position: relative;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 29px;
+        padding-bottom:13px ;
+        color: $color4;
+        font-variant: small-caps;
+        &:before{
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          display: block;
+          width: 99vw;
+          border-bottom: 1px solid $color3;
+          opacity: 0.3;
+        }
+      }
+
+      &__company{
+        padding-top: 10px;
+        position: relative;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        color: $color4;
+        text-transform: uppercase;
+        opacity: 0.5;
+      }
+
+      &__birthday{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        padding-bottom: 45px;
+        padding-top:10px ;
+        &__text{
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          color: $color4;
+          text-transform: uppercase;
+          opacity: 0.5;
+        }
+        &__icon{
+          width: 14px;
+          height: 14px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 10px;
+          i{
+            font-size: 13px;
+            color: $color4;
+            opacity: 0.5;
+          }
+        }
+      }
+
+
+
+    }
+
+    &__social{
+      display: flex;
+      &__icon{
+        width: 16px;
+        height: 16px;
+        color: $color4;
+        margin-right: 12px;
+        padding-top: 2px;
+        i{
+          font-size: 14px;
+        }
+      }
+
+      &__wrap{
+        display: flex;
+        flex-direction: column;
+        &__item{
+          margin-top: 7px;
+          &:nth-child(1){
+          margin-top: 0;
+          }
+
+        }
+
+      }
+
+      &__tags{
+        margin-top: 30px;
+        &__item{
+          margin-top: 16px;
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          &:nth-child(1){
+            margin-top: 0;
+          }
+          &__icon{
+            margin-right: 16px;
+            width: 24px;
+            height: 24px;
+              color: $color4;
+            i{
+              font-size: 20px;
+            }
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.dataitem{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: $color4;
+  outline: none;
+  text-underline: none;
+  text-decoration: none;
+  overflow: hidden;
+  &:hover{
+    outline: none;
+    text-underline: none;
+    text-decoration: none;
+  }
+}

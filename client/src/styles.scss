@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "src/var";
+
+::selection { color: $color5;  background: $color1};
+
+html{
+  height: 100vh;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+  background-color: $color1;
+  position: relative;
+}
+
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes rotationstart {
+  from {
+    transform: rotate(359deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}

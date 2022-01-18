@@ -1,0 +1,44 @@
+@import "src/var";
+
+.app-content__main{
+  width: calc(100vw - 60px) ;
+
+  justify-content: center;
+  padding: 82px 0 0 20px;
+  flex-wrap: wrap;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 350px);
+  grid-gap: 3px;
+  grid-column-end: 1;
+
+
+
+}
+
+.app-content-item__main {
+  display: inline-block;
+
+  //margin-left: 3px;
+  //margin-top: 3px;
+  padding: 16px 0 16px 24px;
+
+  //width: 254px;
+  //width: 350px;
+  min-height: 86px;
+
+  background-color: $color2;
+
+
+  position: relative;
+  overflow: hidden;
+
+  cursor: pointer;
+  // for alphabet
+  // for alphabet
+  //&:nth-last-child(1){
+  //    grid-column: span 4;
+  //}
+
+
+}

@@ -1,0 +1,12 @@
+@import "src/var";
+
+.app-leftbar__main{
+  margin-top: 52px;
+  width: 195px;
+  height: 100vh;
+  border-right: 1px solid $color2;
+  padding: 15px;
+  padding-top: 25px;
+  position: fixed;
+  left: 0;
+}

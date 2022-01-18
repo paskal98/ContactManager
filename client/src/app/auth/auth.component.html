@@ -1,0 +1,51 @@
+
+
+<div class="app-auth__main">
+
+
+
+
+    <div class="app-auth__main__container" *ngIf="!isSignUpVerif">
+      <span>Username</span>
+      <input class="app-auth__main__container__input" placeholder="username"  #usernameRef>
+    </div>
+
+    <div class="app-auth__main__container" *ngIf="!isSignUpVerif">
+      <span>Password</span>
+      <input class="app-auth__main__container__input" placeholder="password"   #passwordRef>
+    </div>
+
+    <div class="app-auth__main__container"  *ngIf="isSignUp">
+      <span>Email</span>
+      <input class="app-auth__main__container__input" placeholder="email"   #emaildRef>
+    </div>
+
+    <div class="app-auth__main__container"  *ngIf="isSignUp">
+      <span>Name</span>
+      <input class="app-auth__main__container__input" placeholder="name"   #namedRef>
+    </div>
+
+    <div class="app-auth__main__container"  *ngIf="isSignUpVerif">
+      <span>Code</span>
+      <input class="app-auth__main__container__input" placeholder="verif"   #verifRef>
+    </div>
+
+    <div class="app-auth__main__button">
+      <button class="app-auth__main__button_sub panel_button" (click)="setLogIn()" *ngIf="!isSignUp && !isSignUpVerif">LOG IN</button>
+      <button class="app-auth__main__button_sub panel_button" (click)="setPreSignUp()" *ngIf="!isSignUp  && !isSignUpVerif">SIGN UP</button>
+
+      <button class="app-auth__main__button_sub panel_button" (click)="setVerifSignUp()" *ngIf="isSignUp && !isSignUpVerif">SIGN UP</button>
+
+      <button class="app-auth__main__button_sub panel_button" (click)="setSignUp()" *ngIf="isSignUpVerif">SIGN UP</button>
+    </div>
+
+
+
+
+
+
+
+</div>
+
+
+

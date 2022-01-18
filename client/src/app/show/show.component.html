@@ -1,0 +1,134 @@
+
+
+<div class="app-show__main">
+
+  <div class="app-show__main__panel panel">
+    <button class="app-show__main__panel__button panel_button" (click)="dispalyButtonBackToMain()">BACK</button>
+    <button class="app-show__main__panel__button panel_button" (click)="setButtonEditContacts()">EDIT</button>
+    <button class="app-show__main__panel__button panel_button" (click)="setButtonDeleteContact()">REMOVE</button>
+  </div>
+
+  <div class="app-show__main__content">
+
+    <div class="app-show__main__content__main">
+
+      <div  class="app-show__main__content__main__fullname">{{fullname}}</div>
+      <div *ngIf="work!=''" class="app-show__main__content__main__company">{{work}}</div>
+      <div *ngIf="contactdata.birthday!=undefined" class="app-show__main__content__main__birthday">
+        <div class="app-show__main__content__main__birthday__icon"><i class="fas fa-birthday-cake"></i></div>
+        <div class="app-show__main__content__main__birthday__text">{{contactdata.birthday}}</div>
+      </div>
+
+    </div>
+
+    <div *ngIf="isExists(contactdata.phones)" class="app-show__main__content__social">
+
+      <div class="app-show__main__content__social__icon">
+        <i class="fas fa-phone"></i>
+      </div>
+
+      <div class="app-show__main__content__social__wrap">
+
+        <ng-container *ngFor="let p of contactdata.phones; index as i">
+          <a class="app-show__main__content__social__wrap__item dataitem" href="tel:{{p.phone}}">{{p.phone}}</a>
+        </ng-container>
+
+
+      </div>
+
+
+
+
+    </div>
+
+    <div *ngIf="isExists(contactdata.socialLinks)" class="app-show__main__content__social">
+
+      <div class="app-show__main__content__social__icon">
+        <i class="fas fa-comment-dots"></i>
+      </div>
+
+      <div class="app-show__main__content__social__wrap">
+
+        <ng-container *ngFor="let s of contactdata.socialLinks; index as i">
+          <a class="app-show__main__content__social__wrap__item dataitem" href="{{s.socialLink}}">{{s.socialLink}}</a>
+        </ng-container>
+
+
+
+      </div>
+
+
+
+
+    </div>
+
+    <div *ngIf="isExists(contactdata.emails)" class="app-show__main__content__social">
+
+      <div class="app-show__main__content__social__icon">
+        <i class="fas fa-envelope"></i>
+      </div>
+
+      <div class="app-show__main__content__social__wrap">
+
+        <ng-container *ngFor="let e of contactdata.emails; index as i">
+          <a class="app-show__main__content__social__wrap__item dataitem" href="mailto:{{e.email}}">{{e.email}}</a>
+        </ng-container>
+
+
+      </div>
+
+
+
+
+    </div>
+
+    <div *ngIf="isExists(contactdata.address)" class="app-show__main__content__social">
+
+      <div class="app-show__main__content__social__icon">
+        <i class="fas fa-map-marker-alt"></i>
+      </div>
+
+      <div class="app-show__main__content__social__wrap">
+
+        <ng-container *ngFor="let a of contactdata.address; index as i">
+          <a class="app-show__main__content__social__wrap__item dataitem" href="{{a.addressLink}}">{{a.addressName}}</a>
+        </ng-container>
+
+
+      </div>
+
+
+
+
+    </div>
+
+
+
+    <div *ngIf="isExists(contactdata.tags)" class="app-show__main__content__social app-show__main__content__social__tags">
+
+
+      <div class="app-show__main__content__social__wrap">
+
+        <ng-container *ngFor="let t of contactdata.tags;index as i">
+          <div class="app-show__main__content__social__tags__item">
+
+            <div class="app-show__main__content__social__tags__item__icon">
+              <i class="fas fa-tag" [ngStyle]="{'color': t.color}"></i>
+            </div>
+
+            <div class="app-show__main__content__social__tags__item__name dataitem">{{t.tag}}</div>
+          </div>
+        </ng-container>
+
+
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+
+</div>

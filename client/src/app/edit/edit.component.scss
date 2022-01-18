@@ -1,0 +1,114 @@
+@import "src/var";
+@import "src/BEM";
+
+.app-edit__main{
+  width: calc(99vw) ;
+  padding-top: 52px;
+
+
+  &__panel{
+    &__button{
+      &:nth-last-child(1){
+        &:hover{
+          background-color: $color6;
+          border: 1px solid $color6;
+        }
+      }
+    }
+  }
+
+  &__content{
+    display: grid;
+    grid-template-columns: repeat(1,80vw);
+    justify-content: space-around;
+    grid-row-gap: 30px;
+    padding-bottom: 30px;
+    &__row{
+      margin-top: 28px;
+      display: flex;
+      width: 100%;
+      &:nth-child(1){
+        margin-top: 0;
+      }
+      &__icon{
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 16px;
+        padding-top: 3px;
+        i{
+          color: $color4;
+          font-size: 18px;
+        }
+      }
+      &__wrap{
+        display: flex;
+        flex-direction: column;
+        width: 350px;
+        &__item{
+          margin-top: 10px;
+          border: none;
+          outline: none;
+          width: 100%;
+          padding: 5px 15px;
+          border-bottom: 1px solid rgba(70, 70, 70, 0.2);
+
+          background: none;
+
+          &:nth-child(1){
+            margin-top: 0;
+          }
+        }
+        &__tagwrap{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 24px;
+          &:nth-child(1){
+            margin-top: 0;
+          }
+
+          &__pallette{
+            -webkit-appearance: none;
+            border: none;
+            outline: none;
+            width: 24px;
+            height: 24px;
+            background-color: $color1;
+          }
+          input[type="color" i]{
+            padding: 0;
+          }
+          &__pallette::-webkit-color-swatch-wrapper{
+            padding: 0;
+          }
+          &__pallette::-webkit-color-swatch{
+            border: none;
+            border-radius: 50%;
+          }
+          &__name{
+            margin-top: 10px;
+            border: none;
+            outline: none;
+            width: 75%;
+            padding: 5px 15px;
+            border-bottom: 1px solid rgba(70, 70, 70, 0.20);
+            background: none;
+
+            &:nth-child(1){
+              margin-top: 0;
+            }
+          }
+
+
+        }
+
+      }
+
+    }
+
+  }
+
+}

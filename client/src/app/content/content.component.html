@@ -1,0 +1,24 @@
+
+
+<div class="app-content__main" #mainRef>
+
+
+
+  <ng-container *ngFor="let d of contacts; index as i">
+
+    <div  class="app-content-item__main" (click)="setButtonShowContact(d.id)">
+      <app-content-item [info]="d"></app-content-item>
+    </div>
+
+  </ng-container>
+
+
+
+
+
+
+
+
+
+
+</div>

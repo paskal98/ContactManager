@@ -1,0 +1,31 @@
+
+
+
+
+<app-auth *ngIf="!isUserLoged; else logedRef" (logIn)="onLogIn($event)" (signUp)="onSignUp($event)" (signUpVerif)="onSignUpVerif($event)"></app-auth>
+
+
+<ng-template #logedRef>
+
+    <app-navigation [user]="username" (setShowAllContacts)="onSetShowAllContacts($event)" (setNewContacts)="onSetNewContact($event)"  (setSettings)="onSetSettings()"></app-navigation>
+
+    <div class="main">
+
+      <ng-container *ngIf="window==0 && statusDataLoaded">
+        <app-content (setShowContact)="onSetShowContact($event)" [contacts]="contact" ></app-content>
+      </ng-container>
+
+      <ng-container *ngIf="window==1 && statusDataLoaded ">
+        <app-show [contactdata]="showContact" (setEditContacts)="onSetEditContacts($event)" (setDispalyButtonBackToMain)="onSetShowAllContacts(0)" (setDispalyButtonBackToMainWithUpdate)="onDeleteContact($event)" ></app-show>
+      </ng-container>
+
+      <ng-container *ngIf="window==3">
+        <app-edit [editData]="toEdit" (setBackButtonShowProfile)="onSetBackButtonShowProfile($event)" (setCreatedContact)="onCreatedContact($event)" ></app-edit>
+      </ng-container>
+
+
+    <!-- <app-leftbar></app-leftbar> -->
+
+    </div>
+
+</ng-template>

@@ -1,0 +1,212 @@
+<div class="app-edit__main">
+
+  <div class="app-edit__main__panel panel">
+    <button class="app-edit__main__panel__button panel_button"   *ngIf="!isDataExists; else backRef" (click)="backButtonShowProfile(0)">BACK</button>
+    <ng-template #backRef><button class="app-edit__main__panel__button panel_button"  (click)="backButtonShowProfile(1)">BACK</button></ng-template>
+    <button class="app-edit__main__panel__button panel_button" value="{{editData.id}}" (click)="saveOrUpdateDataContact($event)">SAVE</button>
+
+  </div>
+
+  <div class="app-edit__main__content">
+
+    <div class="app-edit__main__content__row">
+
+      <div class="app-edit__main__content__row__icon">
+        <i class="fas fa-address-card"></i>
+      </div>
+
+
+        <div  class="app-edit__main__content__row__wrap" >
+          <input class="app-edit__main__content__row__wrap__item" #nameRef value="{{editData.name}}" required placeholder="Name..."/>
+          <input class="app-edit__main__content__row__wrap__item" #surnameRef value="{{editData.surname}}" placeholder="Middlename..."/>
+          <input class="app-edit__main__content__row__wrap__item" #lastnameRef value="{{editData.lastname}}" placeholder="Lastname..."/>
+        </div>
+
+
+
+
+
+
+    </div>
+
+    <div class="app-edit__main__content__row">
+
+      <div class="app-edit__main__content__row__icon">
+        <i class="fas fa-briefcase"></i>
+      </div>
+
+
+        <div class="app-edit__main__content__row__wrap" >
+          <input class="app-edit__main__content__row__wrap__item" #companyNameRef value="{{editData.companyName}}" placeholder="Company name..."/>
+          <input class="app-edit__main__content__row__wrap__item" #departmentRef value="{{editData.department}}" placeholder="Department..."/>
+          <input class="app-edit__main__content__row__wrap__item" #jobRef value="{{editData.job}}" placeholder="Job..."/>
+        </div>
+
+
+    </div>
+
+    <div class="app-edit__main__content__row">
+
+      <div class="app-edit__main__content__row__icon">
+        <i class="fas fa-phone"></i>
+      </div>
+
+
+        <div class="app-edit__main__content__row__wrap" >
+
+          <ng-container *ngFor="let p of phonesToUpdate; index as i">
+            <input (input)="changeEditInput(0,i,$event)" [attr.data-id]="p.id"  value="{{p.phone}}" class="app-edit__main__content__row__wrap__item" placeholder="Add number..."/>
+          </ng-container>
+
+          <input (change)="addNewInput(0,0,$event)" [attr.data-index]="0" value="" class="app-edit__main__content__row__wrap__item" placeholder="Add number..."/>
+
+          <ng-container *ngFor="let i of createRange(inputsCountPhones)" >
+            <ng-container *ngIf="i!=0">
+              <input (change)="addNewInput(0,i,$event)" [attr.data-index]="i" class="app-edit__main__content__row__wrap__item" placeholder="Add number..."/>
+            </ng-container>
+          </ng-container>
+
+        </div>
+
+
+
+    </div>
+
+    <div class="app-edit__main__content__row">
+
+      <div class="app-edit__main__content__row__icon">
+        <i class="fas fa-envelope"></i>
+      </div>
+
+
+
+        <div class="app-edit__main__content__row__wrap">
+
+          <ng-container *ngFor="let e of emailsToUpdate;index as i">
+            <input (input)="changeEditInput(1,i,$event)" [attr.data-id]="e.id" class="app-edit__main__content__row__wrap__item" value="{{e.email}}" placeholder="Add email..."/>
+          </ng-container>
+
+          <input (change)="addNewInput(1,0,$event)" [attr.data-index]="0" value=""  class="app-edit__main__content__row__wrap__item" placeholder="Add email..."/>
+
+          <ng-container *ngFor="let i of createRange(inputsCountEmails)" >
+            <ng-container *ngIf="i!=0">
+              <input (change)="addNewInput(1,i,$event)"  [attr.data-index]="i" value=""  class="app-edit__main__content__row__wrap__item" placeholder="Add email..."/>
+            </ng-container>
+          </ng-container>
+
+        </div>
+
+
+
+    </div>
+
+    <div class="app-edit__main__content__row">
+
+      <div class="app-edit__main__content__row__icon">
+        <i class="fas fa-comment-dots"></i>
+      </div>
+
+
+        <div class="app-edit__main__content__row__wrap" #socialRef>
+
+          <ng-container *ngFor="let s of socialLinksToUpdate; index as i">
+            <input  (input)="changeEditInput(2,i,$event)" [attr.data-id]="s.id" class="app-edit__main__content__row__wrap__item" value="{{s.socialLink}}" placeholder="Add social user link..."/>
+          </ng-container>
+
+
+          <input  (change)="addNewInput(2,0,$event)" [attr.data-index]="0" value="" class="app-edit__main__content__row__wrap__item" placeholder="Add social user link..."/>
+
+          <ng-container *ngFor="let i of createRange(inputsCountSocial)" >
+            <ng-container *ngIf="i!=0">
+              <input  (change)="addNewInput(2,i,$event)" [attr.data-index]="i" value="" class="app-edit__main__content__row__wrap__item" placeholder="Add social user link..."/>
+            </ng-container>
+          </ng-container>
+
+        </div>
+
+    </div>
+
+    <div class="app-edit__main__content__row">
+
+      <div class="app-edit__main__content__row__icon">
+        <i class="fas fa-map-marker-alt"></i>
+      </div>
+
+
+
+
+        <div class="app-edit__main__content__row__wrap" >
+
+          <ng-container *ngFor="let a of addressToUpdate; index as i">
+            <input (input)="changeEditInput(3,i,$event)" class="app-edit__main__content__row__wrap__item closest" value="{{a.addressName}}"  placeholder="Add name of address..."/>
+            <input (input)="changeEditInput(3,i,$event)" [attr.data-id]="a.id" class="app-edit__main__content__row__wrap__item" value="{{a.addressLink}}" placeholder="Add google map link..."/>
+            <br>
+          </ng-container>
+
+
+
+
+          <ng-container *ngFor="let i of createRange(inputsCountAddr)" >
+
+              <input (change)="addNewInput(3.5,i,$event)" [attr.data-index]="i" class="app-edit__main__content__row__wrap__item closest" value="" placeholder="Add name of address..."/>
+              <input (change)="addNewInput(3,i,$event)" [attr.data-index]="i" value=""  class="app-edit__main__content__row__wrap__item" placeholder="Add google map link..."/>
+              <br>
+
+          </ng-container>
+
+        </div>
+
+
+
+    </div>
+
+    <div class="app-edit__main__content__row">
+
+      <div class="app-edit__main__content__row__icon">
+        <i class="fas fa-birthday-cake"></i>
+      </div>
+
+
+        <div class="app-edit__main__content__row__wrap">
+          <input class="app-edit__main__content__row__wrap__item" #birthdayRef value="{{editData.birthday}}" placeholder="Example 31.01.2021"/>
+        </div>
+
+    </div>
+
+    <div class="app-edit__main__content__row">
+
+
+
+        <div class="app-edit__main__content__row__wrap"  >
+
+          <ng-container *ngFor="let t of tagsToUpdate; index as i">
+            <div class="app-edit__main__content__row__wrap__tagwrap">
+              <input (input)="changeEditInput(4,i,$event)" type="color" value="{{t.color}}" class="app-edit__main__content__row__wrap__tagwrap__pallette">
+              <input (input)="changeEditInput(4,i,$event)" [attr.data-id]="t.id" class="app-edit__main__content__row__wrap__tagwrap__name" value="{{t.tag}}" placeholder="Input tag name...">
+            </div>
+          </ng-container>
+
+          <div class="app-edit__main__content__row__wrap__tagwrap">
+            <input type="color" value="#D49C6B" class="app-edit__main__content__row__wrap__tagwrap__pallette">
+            <input (change)="addNewInput(4,0,$event)" [attr.data-index]="0" value="" class="app-edit__main__content__row__wrap__tagwrap__name" placeholder="Input tag name...">
+          </div>
+
+
+
+
+          <ng-container *ngFor="let i of createRange(inputsCountTags)" >
+            <ng-container *ngIf="i!=0">
+              <div class="app-edit__main__content__row__wrap__tagwrap">
+                <input type="color" value="#D49C6B" class="app-edit__main__content__row__wrap__tagwrap__pallette">
+                <input (change)="addNewInput(4,i,$event)" [attr.data-index]="i" value="" class="app-edit__main__content__row__wrap__tagwrap__name" placeholder="Input tag name...">
+              </div>
+            </ng-container>
+          </ng-container>
+
+        </div>
+
+    </div>
+
+  </div>
+
+</div>

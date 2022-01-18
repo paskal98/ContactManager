@@ -1,0 +1,23 @@
+<div class="app-navigation__main">
+
+  <div class="app-navigation__main__welcome">Hello, {{user}}</div>
+
+  <div class="app-navigation__main__search">
+
+    <input class="app-navigation__main__search__search" placeholder="Input name, company, phone, etc...">
+
+    <i class="fas fa-search"></i>
+
+    <button class="app-navigation__main__search__button" (click)="setButtonShowAllContacts()">ALL</button>
+    <button class="app-navigation__main__search__button" (click)="setButtonNewContacts()">NEW</button>
+    <button class="app-navigation__main__search__button">SORT</button>
+
+
+
+  </div>
+
+  <div (click)="setButtonSettings()" class="app-navigation__main__settings">
+    <i class="fas fa-cog"></i>
+  </div>
+
+</div>

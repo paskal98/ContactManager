@@ -1,0 +1,28 @@
+@import "src/var";
+
+.app-leftbar__main__item{
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 16px;
+  &__tag{
+    width: 20px;
+    height: 20px;
+    background-color: $color3;
+    border-radius: 50%;
+    margin-right: 12px;
+    &__name{
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 12px;
+
+      color: $color3;
+    }
+  }
+
+
+
+}
