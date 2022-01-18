@@ -1,0 +1,36 @@
+
+
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    #url: jdbc:mysql://localhost:3306/contactmanager_db?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/demo_db?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+  security:
+    user:
+      name: user
+      password: pass
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: vladkiew15
+    password: POIalopi+)
+    protocol: smtp
+    properties.mail.smtp:
+      auth: true
+      tls: true
+      starttls.enable: true
+      ssl.trust: smtp.gmail.com
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          google:
+#            clientId: 371330849282-mhcrppc7pdiphvrcd6m6btr7ki4nfvkm.apps.googleusercontent.com
+#            clientSecret: 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
